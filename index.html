@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mom 💖</title>
+
+<style>
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff6f91, #ffb6c1, #ffc0cb);
+    font-family: Arial;
+    color: white;
+    text-align: center;
+    padding: 20px;
+
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+body.show { opacity: 1; }
+
+h1 { font-size: 9vw; }
+p { font-size: 5.5vw; }
+
+button {
+    font-size: 5vw;
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: none;
+    background: #ff69b4;
+    color: white;
+}
+
+.bike {
+    position: fixed;
+    bottom: 20px;
+    left: -100px;
+    font-size: 50px;
+    animation: ride 8s linear infinite;
+}
+
+@keyframes ride {
+    0% { left: -100px; }
+    100% { left: 110%; }
+}
+</style>
+</head>
+
+<body>
+
+<div>
+<h1>Dear Mom 💖</h1>
+<p>Tap anywhere to start 🎵</p>
+<button onclick="nextPage()">Click here 💖</button>
+</div>
+
+<div class="bike">🏍️</div>
+
+<audio id="bgMusic" loop>
+<source src="music.mp3">
+</audio>
+
+<script>
+window.onload = () => document.body.classList.add("show");
+
+document.body.addEventListener("click", function () {
+document.getElementById("bgMusic").play();
+}, { once: true });
+
+function nextPage(){
+document.body.classList.remove("show");
+setTimeout(()=>{window.location.href="page2.html";},600);
+}
+</script>
+
+</body>
+</html>
